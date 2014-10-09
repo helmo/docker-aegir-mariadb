@@ -50,9 +50,10 @@ else
   sleep 6
 fi
 
-chmod +x /solr_install.sh
-/solr_install.sh
+#chmod +x /solr_install.sh
+#/solr_install.sh
 
+set -x
 echo "init aegir"
 if [ -e "/root/installed" ] ; then
 	echo "Host already installed"
@@ -99,6 +100,8 @@ fi
 
 # Stop mariadb, supervisor will start it later and keep it running.
 mysqladmin -p$MYSQL_ROOT_PW shutdown
+
 #DPKG_DEBUG=developer apt-get -y install aegir2
+
 echo "Starting supervisor:"
 supervisord -c /opt/supervisor.conf -n

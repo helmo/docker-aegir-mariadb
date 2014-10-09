@@ -17,7 +17,7 @@ if [ -f config-include.sh ]; then
 fi
 
 docker run \
-  --detach=true \
+  --detach=false \
   -v /var/docker/aegir01/usr/share/solr4:/usr/share/solr4 \
   -v /var/docker/aegir01/var/aegir:/var/aegir \
   -v /var/docker/aegir01/var/log/apache2:/var/log/apache2 \
@@ -39,3 +39,6 @@ docker run \
   -h aegir01 \
   --name aegir01 \
   $IMAGE_NAME
+
+
+#  --privileged=true \
